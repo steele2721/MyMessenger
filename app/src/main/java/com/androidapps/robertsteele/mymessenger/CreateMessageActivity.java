@@ -28,8 +28,9 @@ public class CreateMessageActivity extends AppCompatActivity {
                 if(message.equals("")){
                     message = "No message was entered";
                 }
-                Intent i = new Intent(getBaseContext(), ReceiveMessageActivity.class);
-                i.putExtra(MESSAGE, message);
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, message);
                 startActivity(i);
             }
         });
